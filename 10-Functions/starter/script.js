@@ -242,4 +242,74 @@ console.log(' ');
  
  (() => console.log('this will ALSO never run again!!'))();
  //aula 136
+ 
+ //aula 137
+
+ const secureBooking = function () {
+    let passengerCount = 0;
+
+    return function() {
+        passengerCount++;
+        console.log(`${passengerCount} passengers`);
+    } 
+}
+
+// aparentemente o booker armazena o estadi let passengerCount = 0;
+// dessa forma ele pode ser incrementado toda ves no retorno da função anonima dentro de secureBooking
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.dir(booker);
+//aula 137
  */
+
+//aula 138
+
+// Example 1
+let f;
+
+const g = function () {
+    const a = 23;
+    f = function () {
+        console.log(a * 2);
+    };
+};
+
+
+const h = function() {
+    const b = 777;
+    f = function () {
+        console.log(b * 2);
+    }
+}
+
+g();
+f();
+console.dir(f);
+
+// Re-assigning f function
+h();
+f();
+console.dir(f);
+
+// Example 2
+
+const boardPassengers = function(n, wait) {
+    //para testar o escopo global comente a linha abaixo
+    const perGroup = n / 3;
+
+    setTimeout(function(){
+        console.log(`We are boarding all ${n} passengers`);
+        console.log(`There are 3 groups, each with ${perGroup} passengers `);
+    }, wait * 1000 )
+
+    console.log(`Will start boarding in ${wait} seconds`);
+}
+
+//closure tem prioridade sobre o escopo global, esse trecho não funcionaria
+const perGroup = 1000;
+// wait in seconds
+boardPassengers(180, 3); 
