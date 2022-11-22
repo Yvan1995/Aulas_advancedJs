@@ -19,6 +19,13 @@ header.style.color = 'red';
 })();
  */
 (function () {
+    //criação da variavel dentro da função 'pai'
     const header = document.querySelector('h1');
     header.style.color = 'red';
-    })();
+
+    //mesmo após a execução ter sido finalizada, o closure ainda 'lembra' da variavel
+    //com isso é possivel utiliza-la novamente. 
+    document.querySelector('body').addEventListener('click', function () {
+        header.style.color = 'blue';
+    })
+    }) ();
