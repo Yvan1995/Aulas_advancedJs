@@ -126,7 +126,7 @@
  
  console.log('yvan'.at(0));
  console.log('yvan'.at(-1));
- */
+ // aula 143
  // aula 144
 
  const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -154,3 +154,27 @@
      console.log(`movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
    }
  })
+// aula 144
+ */
+
+// aula 145
+// Map => [key, value] 
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+currencies.forEach(function(value, key, map) {
+  console.log(`${key}: ${value}`);
+})
+
+// Set
+// Set não possue key nem indices
+const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+console.log(currenciesUnique);
+// underline => variavel ou argumento descartavel
+currenciesUnique.forEach(function(value, _ , map) {
+  console.log(`${value}: ${value}`);
+})
+// aula 145
