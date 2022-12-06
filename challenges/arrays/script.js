@@ -24,3 +24,27 @@ Test data:
 Hints: Use tools from all lectures in this section so far 😉
 GOOD LUCK 😀
  */
+
+const checkDogs = function (dogsJulia, dogsKate) {
+    // cópia rasa do array original
+    const dogsJuliaCorrected = dogsJulia.slice();
+    dogsJuliaCorrected.splice(0,1)
+    dogsJuliaCorrected.splice(-2)
+    
+    const dogs = dogsJuliaCorrected.concat(dogsKate);
+    console.log("dogs =>",dogs);
+    /**
+     ("Dog number 1 is an adult, and is 5 years old") or a 
+     puppy ("Dog number 2 is still a puppy🐶")
+    */
+    dogs.forEach(function (dog, i) {
+        if (dog >= 3) {
+            console.log(`Dog number ${i + 1} is an adult, and is ${dog} years old`);
+        } else {
+            console.log(`Dog number ${i + 1} is still a puppy🐶`);
+        }
+    })
+
+}
+
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
