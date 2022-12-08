@@ -178,3 +178,96 @@ currenciesUnique.forEach(function(value, _ , map) {
   console.log(`${value}: ${value}`);
 })
 // aula 145
+
+// aula 149
+ /**
+   *********** MAP ************
+
+   👉 map returns a new array containing
+  the results of applying an operation
+  on all original array elements
+
+   *********** FILTER ************
+   👉 filter returns a new array
+  containing the array elements that
+  passed a specified test condition
+
+   *********** REDUCE ************
+   👉 reduce boils (“reduces”) all array
+  elements down to one single value
+  (e.g. adding all elements together)
+
+  // aula 149
+  // aula 150
+  // *********** MAP ************
+  const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+ 
+  const eurToUsd = 1.1;
+ 
+  const movementsUSD = movements.map(mov => mov * eurToUsd);
+ 
+  console.log(movements);
+  console.log("USD =>", movementsUSD);
+ 
+  const movementsUsdFor = [];
+  for (const mov of movements) movementsUsdFor.push(mov * eurToUsd);
+  console.log(movementsUsdFor);
+ 
+ const movementsDescriptions = movements.map((mov, i) => 
+   `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(mov)}`
+ ); 
+ 
+ console.log(movementsDescriptions);
+ // aula 150
+ // aula 151
+ const createUserNames = function (accs) {
+   accs.forEach(function(acc) {
+     acc.username = acc.owner.toLowerCase().split(' ').map(name => name[0]).join('');
+   })
+ }
+ 
+ createUserNames(accounts); 
+ console.log(accounts);
+ // aula 151
+ 
+ // aula 152
+ // Filter method
+ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+ 
+ const deposits = movements.filter(function(mov) {
+   return mov > 0;
+ })
+ console.log(movements);
+ console.log(deposits);
+ 
+ // for
+ const depositsFor = [];
+ for(const mov of movements) if (mov > 0) depositsFor.push(mov)
+ console.log("For =>",depositsFor);
+ 
+ const withdrawal = movements.filter(mov => mov < 0 );
+ console.log(withdrawal);
+ // aula 152
+ 
+ // aula 153
+ // Reduce method
+ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+ 
+ console.log(movements);
+ 
+ // const balance = movements.reduce(function(acc, cur, i, arr) {
+ //   console.log(`Iteration ${i}: ${acc}`);
+ //   return acc + cur;
+ // }, 0);// => um outro argumento que podemos adicionar é o valor inicial do acumulador por padrão
+ // // por exemplo nesse caso é 0. Então na primeira iteração dependendo do valor ele é adicionado ao acumulador.
+ // console.log(balance);
+ 
+ // Usando arrow function 
+ const balance = movements.reduce((acc, cur) => acc + cur , 0);
+ console.log(balance);
+ 
+ // for
+ let balance2 = 0;
+ for (const mov of movements) balance2 += mov
+ console.log(balance2);
+ */
